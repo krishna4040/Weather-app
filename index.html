@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'League Spartan', sans-serif;
+        }
+        :root{
+            --dark1: #112D4E;
+            --dark2: #3F72AF;
+            --light1: #DBE2EF;
+            --light2: #F9F7F7;
+        }
+        .active{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="h-screen w-screen box-border overflow-hidden">
+
+        <div id="container" class="w-full h-full text-[var(--light2)] bg-gradient-to-b from-[var(--dark1)] to-[var(--dark2)]">
+
+            <h1 class="text-center uppercase pt-5 text-2xl font-extrabold">Weather app</h1>
+
+            <div id="tabCaontainer" class="flex justify-between max-w-lg my-0 mt-16 mx-auto w-[90%]">
+
+                <span id="tab1" class="cursor-pointer select-none text-[0.75rem] tracking-[1.75px] py-[5px] px-[8px]">Your Weather</span>
+
+                <span id="tab2" class="cursor-pointer select-none text-[0.75rem] tracking-[1.75px] py-[5px] px-[8px]">Search Weather</span>
+
+            </div>
+
+            <div id="Panels" class="flex flex-col justify-center items-center my-16">
+
+                <div id="permissionPanel" class="hidden flex-col items-center">
+
+                    <img src="./assets/location.png" alt="#" class="w-[80px] h-[80px] mb-8" loading="lazy">
+
+                    <p class="text-[1.75rem] font-bold">Grant Location Access</p>
+
+                    <p class="text-[0.85rem] font-[500] mt-[0.75rem] mb-[1.75rem] tracking-[0.75px]">Allow Access to get weather information</p>
+
+                    <button id="grantLoc" class="bg-[var(--dark2)] text-white uppercase text-[0.85rem] rounded-[5px] cursor-pointer py-[10px] px-[30px]">Grnat location</button>
+
+                </div>
+
+                <div id="searchPanel" class="w-[90%] max-w-[550px] my-0 mx-auto hidden justify-center items-center gap-y-0 gap-x-[10px]">
+
+                    <input type="text" placeholder="search for city" id="searchip" class="w-[calc(100%-80px)] h-10 py-0 px-5 bg-[rgba(219,226,239,0.5)] rounded-[10px] placeholder:text-[rgba(255,255,255,0.7)] focus:outline-[3px] focus:outline-[rgba(255,255,255,0.7)]">
+
+                    <button id="searchbtn" class="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[var(--dark2)]"><img src="./assets/search.png" alt="#" class="w-[20px] h-[20px]" loading="lazy"></button>
+
+                </div>
+
+                <div id="loadingPanel" class="hidden flex-col items-center">
+
+                    <img src="./assets/loading.gif" alt="#" width="150" height="150">
+
+                    <p class="uppercase">Loading</p>
+
+                </div>
+
+                <div id="weatherInfoPanel" class="hidden flex-col items-center">
+
+                    <div class="flex items-center gap-x-[0.5rem] gap-y-0 mb-4">
+
+                        <p cityName class="text-[2rem]"></p>
+
+                        <img countryIcon width="30px" height="30px">
+
+                    </div>
+
+                    <p weatherDesc class="text-[1.5rem] font-[200]"></p>
+
+                    <img weatherIcon height="90px" width="90px">
+
+                    <p temp class="text-[2.75rem] font-bold"></p>
+
+                    <div id="cards" class="flex gap-x-[20px] gap-y-[10px] justify-center items-center mt-8">
+
+                        <div id="card1" class="min-w-[200px] bg-[rgba(219,226,239,0.5)] rounded-[5px] p-4 flex flex-col gap-y-[5px] gap-x-0">
+
+                            <img src="./assets/wind.png" alt="#" width="50px" height="50px">
+
+                            <p class="text-[1.15rem] font-[600] uppercase">WindSpeed</p>
+
+                            <p windSpeed class="text-base font-[200]"></p>
+
+                        </div>
+
+                        <div id="card2" class="min-w-[200px] bg-[rgba(219,226,239,0.5)] rounded-[5px] p-4 flex flex-col gap-y-[5px] gap-x-0">
+
+                            <img src="./assets/humidity.png" alt="#" width="50px" height="50px">
+
+                            <p class="text-[1.15rem] font-[600] uppercase">Humidity</p>
+
+                            <p humidity class="text-base font-[200]"></p>
+
+                        </div>
+
+                        <div id="card3" class="min-w-[200px] bg-[rgba(219,226,239,0.5)] rounded-[5px] p-4 flex flex-col gap-y-[5px] gap-x-0">
+
+                            <img src="./assets/cloud.png" alt="#" width="50px" height="50px">
+
+                            <p class="text-[1.15rem] font-[600] uppercase">Cloud</p>
+
+                            <p cloud class="text-base font-[200]"></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
